@@ -1,0 +1,44 @@
+<!doctype HTML>
+<html>
+  <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+  <script src="https://raw.githack.com/jeromeetienne/AR.js/1.7.7/aframe/build/aframe-ar.js"></script>
+  <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+  <body style='margin : 0px; overflow: hidden;'>
+    <!-- Note: this is a test: credits to jeromeetienne: https://github.com/jeromeetienne/ar.js -->
+    <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+      <!-- <a-assets>
+        <a-asset-item id="jar" src="C:/Users/Jacob/Dropbox/Website/WebAR/GLTFs/test_jar.gltf">
+      </a-assets> -->
+      <!-- comment -->
+      <a-assets>
+          <a-asset-item id="animated-asset" src="./GLTFs/test_jar.gltf"></a-asset-item>
+        <a-asset-item id="cesium" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/models/CesiumMan.gltf"></a-asset-item>
+    </a-assets>
+  	<a-marker preset='custom' type='pattern' url='./tracker_pattern/pattern-grey_marker_test.patt'>
+        <a-entity
+          gltf-model="#animated-asset"
+          scale="0.1 0.1 0.1">
+        </a-entity>
+    </a-marker>
+
+    <a-marker preset='custom' type='pattern' url='./tracker_pattern/pattern-marker.patt'>
+      <a-entity
+        gltf-model="#cesium"
+        scale="1 1 1">
+      </a-entity>
+  </a-marker>
+    <!-- <a-entity camera></a-entity> -->
+      
+    <!-- Try this tomorrow -->
+    <!-- If this doesn't work for custom trackers, check out
+    http://www.createwebxr.com/webAR.html
+    https://developers.google.com/web/updates/2018/06/ar-for-the-web
+    https://github.com/google-ar/three.ar.js -->
+      <!-- <a-marker-camera preset='custom' type='pattern' url='./tracker_pattern/pattern-marker.patt'>
+         <a-entity gltf-model="#jar" scale="0.25 0.25 0.25"></a-entity> -->
+        <!-- <a-box position='0 0.5 0' material='color: blue;'> -->
+      <!-- </a-marker-camera> -->
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>
